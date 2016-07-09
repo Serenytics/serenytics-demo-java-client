@@ -1,4 +1,4 @@
-# Serenytics Java demo client
+# Serenytics Java Client [Demo]
 
 This is a small example of calling Serenytics REST API in Java.
 
