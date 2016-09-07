@@ -1,6 +1,5 @@
 package com.serenytics.demo;
 
-import org.apache.commons.codec.binary.Base64;
 import org.apache.http.client.methods.*;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -28,10 +27,9 @@ public class App
         String webAppUuid = args[1];
 
         String urlTemplate = "https://api.serenytics.com/api/web_app/%s/embed";
-        String encodedApiKey = new String(Base64.encodeBase64(("token:" + apiKey).getBytes()));
 
         HttpPost request = new HttpPost(String.format(urlTemplate, webAppUuid));
-        request.setHeader("Authorization", "Basic " + encodedApiKey);
+        request.setHeader("X-Api-Key", apiKey);
         request.setHeader("Content-type", "application/json");
 
         JSONObject content = new JSONObject();
